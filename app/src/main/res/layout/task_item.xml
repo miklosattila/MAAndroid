@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="8dp"
+    android:layout_marginHorizontal="8dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/taskBackground"
+        android:layout_width="365dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/taskbackground" />
+
+    <TextView
+        android:id="@+id/groupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:text="group Project"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground"
+        app:layout_constraintTop_toTopOf="@+id/taskBackground" />
+
+    <TextView
+        android:id="@+id/taskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Set-up company profile"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/groupName" />
+
+    <TextView
+        android:id="@+id/assignedBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Janette Doe"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+    <TextView
+        android:id="@+id/assignedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:text="3:45 pm"
+        app:layout_constraintStart_toEndOf="@+id/assignedBy"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+    <ImageView
+        android:id="@+id/newTaskStatus"
+        android:layout_width="30sp"
+        android:layout_height="20sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="17dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle"
+        app:srcCompat="@drawable/newtaskrect" />
+
+    <TextView
+        android:id="@+id/newTaskStatusText"
+        android:layout_width="25sp"
+        android:layout_height="15sp"
+        android:text="New"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/newTaskStatus"
+        app:layout_constraintEnd_toEndOf="@+id/newTaskStatus"
+        app:layout_constraintStart_toStartOf="@+id/newTaskStatus"
+        app:layout_constraintTop_toTopOf="@+id/newTaskStatus" />
+
+    <ImageView
+        android:id="@+id/inProgressStatus"
+        android:layout_width="60sp"
+        android:layout_height="25sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle"
+        app:srcCompat="@drawable/inprogressicon" />
+
+    <TextView
+        android:id="@+id/inProgressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="In Progress"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/inProgressStatus"
+        app:layout_constraintTop_toTopOf="@+id/inProgressStatus"
+        tools:ignore="SmallSp" />
+
+    <ImageView
+        android:id="@+id/blockedStatus"
+        android:layout_width="60sp"
+        android:layout_height="25sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="17dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle"
+        app:srcCompat="@drawable/blockedicon" />
+
+    <TextView
+        android:id="@+id/blockedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:text="Blocked"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/blockedStatus"
+        app:layout_constraintTop_toTopOf="@+id/blockedStatus" />
+
+    <ImageView
+        android:id="@+id/doneStatus"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle"
+        app:srcCompat="@drawable/doneicon" />
+
+    <TextView
+        android:id="@+id/doneStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="5dp"
+        android:text="Done"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/doneStatus"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+
+
+
+    <TextView
+        android:id="@+id/assigneeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:text="Assignee:"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/assignedBy" />
+
+    <TextView
+        android:id="@+id/assigneeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="6dp"
+        android:text="James Doe"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/assigneeText"
+        app:layout_constraintTop_toBottomOf="@+id/assignedTime" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="333dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/assigneeName"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/deadlineText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:text="Deadline:"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/deadlineDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:text="June 01 2021"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/deadlineText"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/priorityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="35dp"
+        android:text="Medium prio"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ImageView
+        android:id="@+id/highPrioIcon"
+        android:layout_width="11dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:srcCompat="@drawable/highprioicon" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/taskBackground"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground" />
+
+    <TextView
+        android:id="@+id/percentDoneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="2dp"
+        android:text="0% Done"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground" />
+
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/percentDoneText"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintStart_toStartOf="@+id/taskBackground" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/taskBackground"
+        android:background="@color/underline"/>
+
+    <ImageView
+        android:id="@+id/mediumPrioIcon"
+        android:layout_width="11dp"
+        android:layout_height="10dp"
+        app:srcCompat="@drawable/mediumprioicon"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ImageView
+        android:id="@+id/lowPrioIcon"
+        android:layout_width="11dp"
+        android:layout_height="10dp"
+        app:srcCompat="@drawable/lowprioicon"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ImageView
+        android:id="@+id/taskDetailsButton"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/taskBackground"
+        app:layout_constraintTop_toTopOf="@+id/taskBackground"
+        app:srcCompat="@drawable/taskdetailsicon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

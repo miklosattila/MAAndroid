@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_activities_feed"
+        android:icon="@drawable/activitieslogo"
+        android:title="@string/title_activities" />
+
+    <item
+        android:id="@+id/navigation_tasks"
+        android:icon="@drawable/tasksicon"
+        android:title="@string/title_tasks" />
+
+    <item
+        android:id="@+id/navigation_groups"
+        android:icon="@drawable/groupsicon"
+        android:title="@string/title_groups" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/settingslogo"
+        android:title="@string/title_settings"/>
+
+</menu>

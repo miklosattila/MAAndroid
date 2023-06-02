@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">3Tracker</string>
+    <string name="activities">Activities Feed</string>
+    <string name="login">Login Screen</string>
+    <string name="loginButton">Sign in</string>
+    <string name="loginText">Hey, Sign in please!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activities">Activities</string>
+    <string name="title_tasks">My Tasks</string>
+    <string name="title_groups">My Groups</string>
+    <string name="title_settings">Settings</string>
+    <string name="my_profile">My Profile</string>
+    <string name="textview">TextView</string>
+    <string name="log_out">Log Out</string>
+    <string name="filter">Filter your tasks</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="image_url">Image url</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="office_location">Office Location:</string>
+    <string name="name">Name</string>
+    <string name="image_urlHint">Image URL</string>
+    <string name="phone_number">Phone number</string>
+    <string name="location">Location</string>
+    <string name="task_title">Task Title</string>
+    <string name="description">Description</string>
+    <string name="assignee_user_id">Assignee user id</string>
+    <string name="priority_0_2">Priority (1–3)</string>
+    <string name="deadline">Deadline</string>
+    <string name="department_id">Department ID</string>
+    <string name="create">CREATE</string>
+    <string name="new_task">New task</string>
+</resources>
