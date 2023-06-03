@@ -39,11 +39,11 @@ class TasksViewModel : ViewModel(), ViewModelStoreOwner {
         viewModelScope.launch {
             try {
                 val response = taskRepo.getTasks(token = token)
-                if (response!!.isSuccessful){
-                    val responses = response.body().toString().trim().split("),")
+                if (response!=null){
+                    val responses = response.toString().trim().split("),")
                     Log.i("RESPONSES",responses.toString())
                     for(r in responses){
-                        Log.i("Task responses", r)
+//                        Log.i("Task responses", r)
                         val currentResponse = r.split(",")
                         val tempID = currentResponse[0].split("=")[1]
                         val tempTitle = currentResponse[1].split("=")[1]
@@ -95,7 +95,7 @@ class TasksViewModel : ViewModel(), ViewModelStoreOwner {
         viewModelScope.launch {
             try {
                 val response = taskRepo.createTask(token,taskRequest)
-                if (response!!.isSuccessful){
+                if (response!=null){
                     Toast.makeText(context,"TASK ADDED SUCCESSFULLY",Toast.LENGTH_SHORT)
                 }
             }catch (ex: Exception){

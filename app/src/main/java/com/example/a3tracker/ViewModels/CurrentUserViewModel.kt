@@ -126,8 +126,8 @@ class CurrentUserViewModel : ViewModel(){
         viewModelScope.launch {
             try {
                 val response = userRepo.getCurrentUser(cuRequest = token)
-                if(response.isSuccessful){
-                    val responses = response.body().toString().trim().split(",")
+                if(response!=null){
+                    val responses = response.toString().trim().split(",")
                     val responsesToUse : MutableList<String> = mutableListOf()
                     for(r in responses){
                         val temp = r.split("=")[1]

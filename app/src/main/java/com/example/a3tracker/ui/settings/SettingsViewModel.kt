@@ -17,8 +17,8 @@ class SettingsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = userRepo.updateProfile(token,updateInformations)
-                if(response?.isSuccessful==true){
-                    Log.d("Edit Profile",response.body().toString())
+                if(response!=null){
+                    Log.d("Edit Profile",response.toString())
                 }
             }catch (ex:Exception){
                 Log.d("Exception",ex.message,ex)

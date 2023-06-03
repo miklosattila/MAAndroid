@@ -38,9 +38,9 @@ class SplashScreen : Fragment() {
         val sharedPreferences = requireActivity().getSharedPreferences("TRACKER", Context.MODE_PRIVATE)
         val retrievedToken = sharedPreferences.getString("token",null)
         val retrievedDeadline = sharedPreferences.getLong("deadline",12345678)
-        Log.i("Splash Screen token",retrievedToken.toString())
-        Log.i("Splash Screen deadline",retrievedDeadline.toString())
-        Log.i("Splash Screen time ",Date().time.toString())
+//        Log.i("Splash Screen token",retrievedToken.toString())
+//        Log.i("Splash Screen deadline",retrievedDeadline.toString())
+//        Log.i("Splash Screen time ",Date().time.toString())
         if(Date().time < retrievedDeadline){
             currentUserViewModel.updateLoginResponse(retrievedDeadline,retrievedToken.toString(),0)
             if (currentUserViewModel.getCurrentUser()){

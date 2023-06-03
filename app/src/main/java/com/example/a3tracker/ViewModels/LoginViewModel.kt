@@ -27,20 +27,20 @@ class LoginViewModel : ViewModel() {
             try {
                 val loginRequest = LoginRequest(email, password)
                 val response = userRepo.loginUser(loginRequest = loginRequest)
-                if (response?.isSuccessful == true) {
-                    Log.d(TAG, "Login response ${response.body()}")
-                    val responses =  response.body().toString().trim().split(",")
+                if (response!= null) {
+                    Log.d(TAG, "Login response ${response}")
+                    val responses =  response.toString().trim().split(",")
                     val responses0 = responses[0].split("=")
                     val responses1 = responses[1].split("=")
                     var responses2 = responses[2].split("=")
                     responses2 = responses2[1].split(")")
-                    Log.d(TAG,"Responses0[1] = ${responses0[1]}")
-                    Log.d(TAG,"Responses1[1] = ${responses1[1]}")
-                    Log.d(TAG,"Responses2[1] = ${responses2[0]}")
+//                    Log.d(TAG,"Responses0[1] = ${responses0[1]}")
+//                    Log.d(TAG,"Responses1[1] = ${responses1[1]}")
+//                    Log.d(TAG,"Responses2[1] = ${responses2[0]}")
                     responseToSendBack = listOf(responses0[1],responses1[1],responses2[0])
                     loginResult.value = LoginResult.SUCCESS
                 } else {
-                    Log.d(TAG, "Login error response ${response?.errorBody()}")
+                    Log.d(TAG, "Login error response ${response}")
                     loginResult.value = LoginResult.INVALID_CREDENTIALS
                 }
 

@@ -31,13 +31,10 @@ class GroupsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = groupsRepo.getDepartments(token = token)
-                if (response!!.isSuccessful) {
-                    val responses = response.body().toString().trim().split("),")
-                    for(r in responses){
-                        Log.i("RRRRR",r)
-                        val currentResponse = r.split(",")
-                        val tempId=currentResponse[0].split("=")[1].toInt()
-                        val tempName=currentResponse[1].split("=")[1]
+                if (response!=null) {
+                    for(r in response){
+                        val tempId=r.departmentId
+                        val tempName=r.departmentName
                         _uistate.value?.groups!!.add(GetDepartmentsResponse(tempId,tempName))
                     }
                 }

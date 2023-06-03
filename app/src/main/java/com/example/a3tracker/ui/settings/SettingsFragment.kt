@@ -69,12 +69,12 @@ class SettingsFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun initViewItems() {
-        val mentor = allUsersVM.getUserByDepartmentAndType(currentUserVM.getDepartmentId(),0)
+        val mentor = allUsersVM.getUserByDepartmentAndType(currentUserVM.getDepartmentId(),1)
         if (mentor != null) {
             currentUserVM.updateMentor(mentor)
         }
-        Log.i("MENTOR",mentor.toString())
-        Log.i("Department ID", currentUserVM.getDepartmentId().toString())
+//        Log.i("MENTOR",mentor.toString())
+//        Log.i("Department ID", currentUserVM.getDepartmentId().toString())
 
         textName = requireView().findViewById(R.id.textName)
         textName.text = currentUserVM.getName()

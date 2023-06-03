@@ -23,8 +23,8 @@ class UsersViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = userRepo.getUsers(usersRequest = token)
-                if (response.isSuccessful) {
-                    val responses = response.body().toString().trim().split("),")
+                if (response!=null) {
+                    val responses = response.toString().trim().split("),")
                     for (r in responses) {
                         val currentResponse = r.split(",")
                         val tempID = currentResponse[0].split("=").get(1)
@@ -49,7 +49,7 @@ class UsersViewModel : ViewModel() {
                                 tempImageUrl
                             )
                         )
-                        //Log.i("CurrentResponse",currentResponse.toString())
+//                        Log.i("CurrentResponse",currentResponse.toString())
                     }
                     /*for (u in _uistate.value!!.users) {
                         Log.i("USERVM", u.toString())
@@ -82,14 +82,15 @@ class UsersViewModel : ViewModel() {
     }
 
     fun getUserByDepartmentAndType(departmentId:Int,type: Int):GetCUResponse?{
-        for(u in _uistate.value!!.users){
-            /*Log.i("U FULL USER",u.toString())
-            Log.i("U DEPARTMENT ID",u.department_id.toString())
-            Log.i("U type",u.type.toString())*/
-            if(u.department_id==departmentId && u.type==type){
-                return u
-            }
-        }
-        return null
+        Log.i("Users",_uistate.value!!.users.toString())
+        Log.i("Filter", departmentId.toString())
+        Log.i("Filter", type.toString())
+        Log.i("getUserByDepartment ",
+            _uistate.value!!.users.filter{ user -> user.department_id == departmentId && user.type == type }.first()
+                .toString()
+        )
+        return _uistate.value!!.users.filter{ user -> user.department_id == departmentId && user.type == type }.first()
+
+
     }
 }
