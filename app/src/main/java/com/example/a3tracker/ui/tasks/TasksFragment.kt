@@ -89,6 +89,7 @@ class TasksFragment : Fragment() {
             }
         },tasksArrayList,allUsersVM,groupsVM)
         recyclerView.adapter = adapter
+        adapter.resetTasks()
     }
 
     private fun registerListeners() {
@@ -100,8 +101,20 @@ class TasksFragment : Fragment() {
                 id: Long
             ) {
                 val selectedOption = filterDropdown.selectedItem as String
+                Log.i("Filter",selectedOption)
                 if (selectedOption == filters[0]){
+                    adapter.Sort();
                 }
+                if (selectedOption == filters[1]){
+                    adapter.FilterStatus();
+                }
+                if(selectedOption == filters[2])
+                {
+                    adapter.FilterBlocked();
+                }
+//                recyclerView.adapter = adapter
+                adapter.notifyDataSetChanged()
+
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -126,6 +139,8 @@ class TasksFragment : Fragment() {
         val adapter = context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,filters) }
         adapter!!.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         filterDropdown.adapter = adapter
+
+
         newTaskButton = _binding!!.newTaskButton
         profile = _binding!!.profilePicture
         Glide.with(activity).load(currentUserVM.getImageUrl()).into(profile)
@@ -147,3 +162,4 @@ class TasksFragment : Fragment() {
 
 
 }
+

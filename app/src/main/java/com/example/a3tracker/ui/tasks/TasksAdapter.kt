@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat
 @Suppress("DEPRECATION")
 class TasksAdapter(private val listener: OnItemClickListener,private val tasksList:MutableList<Tasks>, private val allUsersVM : UsersViewModel, private val groupsVM: GroupsViewModel) :RecyclerView.Adapter<TasksAdapter.MyViewHolder>() {
 
+    private val originalTasksList: MutableList<Tasks> = ArrayList(tasksList)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.task_item,parent,false)
         return MyViewHolder(itemView)
@@ -109,6 +110,36 @@ class TasksAdapter(private val listener: OnItemClickListener,private val tasksLi
 
     override fun getItemCount(): Int {
         return tasksList.size
+    }
+
+
+    fun Sort() {
+        val sortedList = tasksList.sortedBy { task -> task.createdAt }
+        tasksList.clear()
+        tasksList.addAll(sortedList)
+        notifyDataSetChanged()
+    }
+
+    fun FilterStatus() {
+        val filteredList = originalTasksList.filter { task ->
+            task.status == TaskStatus.NEW || task.status == TaskStatus.IN_PROGRESS
+        }
+        tasksList.clear()
+        tasksList.addAll(filteredList)
+        notifyDataSetChanged()
+    }
+
+    fun FilterBlocked() {
+        val filteredList = originalTasksList.filter { task -> task.status == TaskStatus.BLOCKED }
+        tasksList.clear()
+        tasksList.addAll(filteredList)
+        notifyDataSetChanged()
+    }
+
+    fun resetTasks() {
+        tasksList.clear()
+        tasksList.addAll(originalTasksList)
+        notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
